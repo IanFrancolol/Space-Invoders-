@@ -1,0 +1,5 @@
+setear la variable retornaBalaEnemigo.visible = false
+en cada verificacion de si la bala del jugador choca con la bala del
+enemigo y fijarse que en su condicion en el if() que este agregada 
+la condicion {si retornaBalaEnemigo.visible == true} que tambien 
+entre
