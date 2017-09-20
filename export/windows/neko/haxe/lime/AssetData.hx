@@ -40,12 +40,16 @@ class AssetData {
 			type.set ("assets/images/Player.png", Reflect.field (AssetType, "image".toUpperCase ()));
 			path.set ("assets/music/music-goes-here.txt", "assets/music/music-goes-here.txt");
 			type.set ("assets/music/music-goes-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/sounds/ESTAMOSnNLAb.wav", "assets/sounds/ESTAMOSnNLAb.wav");
+			type.set ("assets/sounds/ESTAMOSnNLAb.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
 			path.set ("assets/sounds/explocionMarcianitoLoko.wav", "assets/sounds/explocionMarcianitoLoko.wav");
 			type.set ("assets/sounds/explocionMarcianitoLoko.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
 			path.set ("assets/sounds/Explosion.wav", "assets/sounds/Explosion.wav");
 			type.set ("assets/sounds/Explosion.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
 			path.set ("assets/sounds/ExplosionJugador.wav", "assets/sounds/ExplosionJugador.wav");
 			type.set ("assets/sounds/ExplosionJugador.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
+			path.set ("assets/sounds/GameOver_-_copia.wav", "assets/sounds/GameOver_-_copia.wav");
+			type.set ("assets/sounds/GameOver_-_copia.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
 			path.set ("assets/sounds/Laser_Shoot2.wav", "assets/sounds/Laser_Shoot2.wav");
 			type.set ("assets/sounds/Laser_Shoot2.wav", Reflect.field (AssetType, "sound".toUpperCase ()));
 			path.set ("assets/sounds/oopcion2ExlocionEnemigo.wav", "assets/sounds/oopcion2ExlocionEnemigo.wav");

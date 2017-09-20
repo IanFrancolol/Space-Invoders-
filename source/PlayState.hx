@@ -72,6 +72,15 @@ class PlayState extends FlxState
 	private var spriteVidas3:FlxSprite;
 	private var estructuraGrup:FlxTypedGroup<Estructuras>;
 	
+	private var VidaEstruc1:Int = 0;
+	private var VidaEstruc2:Int = 0;
+	private var VidaEstruc3:Int = 0;
+	private var VidaEstruc4:Int = 0;
+	private var VidaEstruc5:Int = 0;
+	private var pause:Int = 100;
+	
+	private var Musica:Bool = true;
+	
 	override public function create():Void
 	{
 		super.create();
@@ -110,7 +119,7 @@ class PlayState extends FlxState
 		spriteVidas3.y = 0;
 		
 		tiempo = 5;
-		frame = 1000;
+		frame = 800;
 		elegirGrupo = new FlxRandom();
 		elegirEnemigo = new FlxRandom();
 		elegirTiempoOvni = new FlxRandom();
@@ -183,10 +192,21 @@ class PlayState extends FlxState
 	{
 		super.update(elapsed);
 		CheckEnemigosPantalla();
-		
 		if(VidasJugador<1)
 		{
 			cuadrado.GameOver();
+			if (Musica)
+			{
+				FlxG.sound.playMusic(AssetPaths.ESTAMOSnNLAb__wav, 1, false);
+				pause--;
+				if (pause<=0)
+				{
+					FlxG.sound.pause();
+				}
+				//FlxG.sound.playMusic(AssetPaths.GameOver___copia__wav, 1, true);
+				Musica = false;
+			}
+			EntrarEnfor = false;
 			add(texto);
 			if (FlxG.keys.pressed.ENTER)
 			{
@@ -220,7 +240,7 @@ class PlayState extends FlxState
 		}
 		if (frame == 0)
 		{
-			frame = 1000;
+			frame = 800;
 			tiempo = 0;
 		}
 		if (marcianitoLoko.x < 0)
@@ -245,79 +265,114 @@ class PlayState extends FlxState
 			textoScore = new FlxText(1, 1, 0, "Score:" + puntaje, 8);
 			add(textoScore);
 		}
-		if (tiempo == 0)
+		if (EntrarEnfor)
 		{
-			switch(elegirGrupo.int(1, 4))
+			if (tiempo == 0)
 			{
-				case 1:
-					elegir = elegirEnemigo.int(0, 9);
-					if (enemiGrup.members[elegir].visible == true)
-					{
-						enemiGrup.members[elegir].Atacar();
-					}
-					tiempo = 5;
-				case 2:
-					elegir = elegirEnemigo.int(0, 9);
-					if (enemiGrup2.members[elegir].visible == true)
-					{
-						enemiGrup2.members[elegir].Atacar();
-					}
-					tiempo = 5;
-				case 3:
-					elegir = elegirEnemigo.int(0, 9);
-					if (enemiGrup3.members[elegir].visible == true)
-					{
-						enemiGrup3.members[elegir].Atacar();
-					}
-					tiempo = 5;
-				case 4:
-					elegir = elegirEnemigo.int(0, 9);
-					if (enemiGrup4.members[elegir].visible == true)
-					{
-						enemiGrup4.members[elegir].Atacar();
-					}
-					tiempo = 5;
+				switch(elegirGrupo.int(1, 4))
+				{
+					case 1:
+						elegir = elegirEnemigo.int(0, 9);
+						if (enemiGrup.members[elegir].visible == true)
+						{
+							enemiGrup.members[elegir].Atacar();
+						}
+						tiempo = 5;
+					case 2:
+						elegir = elegirEnemigo.int(0, 9);
+						if (enemiGrup2.members[elegir].visible == true)
+						{
+							enemiGrup2.members[elegir].Atacar();
+						}
+						tiempo = 5;
+					case 3:
+						elegir = elegirEnemigo.int(0, 9);
+						if (enemiGrup3.members[elegir].visible == true)
+						{
+							enemiGrup3.members[elegir].Atacar();
+						}
+						tiempo = 5;
+					case 4:
+						elegir = elegirEnemigo.int(0, 9);
+						if (enemiGrup4.members[elegir].visible == true)
+						{
+							enemiGrup4.members[elegir].Atacar();
+						}
+						tiempo = 5;
+				}
 			}
 		}
 		//CHEKEO SI LA BALA DEL JUGADOR COLICIONA CON LA ESTRUCTURA.
-		for (i in estructuraGrup)//DE i in estructuraGrup -- Recorre el grupo y accede al objeto directamente
-		{
-			if (FlxG.overlap(i, cuadrado.retornaBala()))
+		if (EntrarEnfor)
 			{
-				i.destruyeEstruc();
-				cuadrado.retornaBala().kill();
-			}
-			for ( j in enemiGrup4)
+			for (i in estructuraGrup)//DE i in estructuraGrup -- Recorre el grupo y accede al objeto directamente
 			{
-				if (FlxG.overlap(i, j.retornaBalaEnemigo()))//i refiriendome al grupo de estructuraGrup y j refiriendome al grupo 
-				//de enemiGrup4 y teniendo en cuenta que j es un enemiGrup puedo llamar a retornaBalaEnemigo().
+				if (FlxG.overlap(i, cuadrado.retornaBala()))
 				{
-					j.retornaBalaEnemigo().kill();
-					i.destruyeEstruc();
+					cuadrado.retornaBala().kill();
+					i.ModifEstruc();// cambia el tamaño de la estructura
+					VidaEstruc1++;
+					if (VidaEstruc1 >= 3)
+					{
+						i.destruyeEstruc();
+						VidaEstruc1 = 0;
+					}
+				
 				}
-			}
-			for ( k in enemiGrup3)
-			{
-				if (FlxG.overlap(i, k.retornaBalaEnemigo()))
+				for ( j in enemiGrup4)
 				{
-					i.destruyeEstruc();
-					k.retornaBalaEnemigo().kill();
+					if (FlxG.overlap(i, j.retornaBalaEnemigo()))//i refiriendome al grupo de estructuraGrup y j refiriendome al grupo 
+					//de enemiGrup4 y teniendo en cuenta que j es un enemiGrup puedo llamar a retornaBalaEnemigo().
+					{	
+						j.retornaBalaEnemigo().kill();
+						i.ModifEstruc();
+						VidaEstruc2++;
+						if (VidaEstruc2 >= 3)
+						{
+							i.destruyeEstruc();
+						}
+					}
 				}
-			}
-			for ( l in enemiGrup2)
-			{
-				if (FlxG.overlap(i, l.retornaBalaEnemigo()))
+				for ( k in enemiGrup3)
 				{
-					i.destruyeEstruc();
-					l.retornaBalaEnemigo().kill();
+					if (FlxG.overlap(i, k.retornaBalaEnemigo()))
+					{
+						k.retornaBalaEnemigo().kill();
+						i.ModifEstruc();	
+						VidaEstruc3++;
+						if (VidaEstruc3 >= 3)
+						{
+							i.destruyeEstruc();
+						}
+						
+					}
 				}
-			}
-			for ( z in enemiGrup)
-			{
-				if (FlxG.overlap(i, z.retornaBalaEnemigo()))
+				for ( l in enemiGrup2)
 				{
-					i.destruyeEstruc();
-					z.retornaBalaEnemigo().kill();
+					if (FlxG.overlap(i, l.retornaBalaEnemigo()))
+					{
+						l.retornaBalaEnemigo().kill();
+						i.ModifEstruc();
+						VidaEstruc4++;
+						if (VidaEstruc4 >= 3)
+						{
+							i.destruyeEstruc();
+						}
+						
+					}
+				}
+				for ( z in enemiGrup)
+				{
+					if (FlxG.overlap(i, z.retornaBalaEnemigo()))
+					{
+						z.retornaBalaEnemigo().kill();
+						i.ModifEstruc();
+						VidaEstruc5++ ;
+						if (VidaEstruc5 >= 3)
+						{
+							i.destruyeEstruc();
+						}
+					}
 				}
 			}
 		}

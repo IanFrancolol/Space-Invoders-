@@ -110,7 +110,7 @@ ApplicationMain.init = function() {
 	}
 };
 ApplicationMain.main = function() {
-	ApplicationMain.config = { build : "1253", company : "Theo leyenda", file : "spaceinvadersCODIGO", fps : 60, name : "space invaders(CODIGO)", orientation : "", packageName : "com.example.myapp", version : "0.0.1", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 432, parameters : "{}", resizable : false, stencilBuffer : true, title : "space invaders(CODIGO)", vsync : true, width : 480, x : null, y : null}]};
+	ApplicationMain.config = { build : "1330", company : "Theo leyenda", file : "spaceinvadersCODIGO", fps : 60, name : "space invaders(CODIGO)", orientation : "", packageName : "com.example.myapp", version : "0.0.1", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 432, parameters : "{}", resizable : false, stencilBuffer : true, title : "space invaders(CODIGO)", vsync : true, width : 480, x : null, y : null}]};
 };
 ApplicationMain.start = function() {
 	var hasMain = false;
@@ -4838,6 +4838,7 @@ Controles.__super__ = flixel_FlxState;
 Controles.prototype = $extend(flixel_FlxState.prototype,{
 	create: function() {
 		flixel_FlxState.prototype.create.call(this);
+		flixel_FlxG.mouse.set_visible(false);
 		this.CONTROLS = new flixel_text_FlxText(flixel_FlxG.width / 2 - 30,5,0,"CONTROLES",8);
 		this.F5 = new flixel_text_FlxText(0,25,0,"F5: Maximizar pantalla",8);
 		this.ESC = new flixel_text_FlxText(0,41,0,"ESC: Minimizar pantalla",8);
@@ -5798,7 +5799,30 @@ $hxClasses["Estructuras"] = Estructuras;
 Estructuras.__name__ = ["Estructuras"];
 Estructuras.__super__ = flixel_FlxSprite;
 Estructuras.prototype = $extend(flixel_FlxSprite.prototype,{
-	destruyeEstruc: function() {
+	create: function() {
+		this.ModifEstruc();
+		this.Cambiosprite1();
+		this.RetornaVida();
+		this.vida = 0;
+		this.volveAceroFlaco();
+	}
+	,update: function(elapsed) {
+		flixel_FlxSprite.prototype.update.call(this,elapsed);
+	}
+	,ModifEstruc: function() {
+		this.scale.set_x(0.75);
+		this.scale.set_y(0.75);
+	}
+	,Cambiosprite1: function() {
+		this.vida++;
+	}
+	,volveAceroFlaco: function() {
+		this.vida = 0;
+	}
+	,RetornaVida: function() {
+		return this.vida;
+	}
+	,destruyeEstruc: function() {
 		this.destroy();
 	}
 	,__class__: Estructuras
@@ -5872,10 +5896,11 @@ IntegrantesState.__super__ = flixel_FlxState;
 IntegrantesState.prototype = $extend(flixel_FlxState.prototype,{
 	create: function() {
 		flixel_FlxState.prototype.create.call(this);
+		flixel_FlxG.mouse.set_visible(false);
 		this.INTEGRANTES_DEL_GRUPO = new flixel_text_FlxText(20,5,0,"INTEGRANTES DEL GRUPO",8);
 		this.INTEGRANTES = new flixel_text_FlxText(45,36,0,"LEYENDA THEO ",8);
 		this.INTEGRANTES2 = new flixel_text_FlxText(40,20,0,"LEGUIZAMON IAN ",8);
-		this.PRECIONE_ENTER_PARA_CONTINUAR = new flixel_text_FlxText(40,80,0,"PRECIONE ENTER",8);
+		this.PRECIONE_ENTER_PARA_CONTINUAR = new flixel_text_FlxText(40,80,0,"PRESIONE ENTER",8);
 		this.ENTER = new flixel_text_FlxText(40,88,0,"PARA CONTINUAR",8);
 		this.add(this.INTEGRANTES_DEL_GRUPO);
 		this.add(this.INTEGRANTES);
@@ -6001,6 +6026,7 @@ MenuState.__super__ = flixel_FlxState;
 MenuState.prototype = $extend(flixel_FlxState.prototype,{
 	create: function() {
 		flixel_FlxState.prototype.create.call(this);
+		flixel_FlxG.mouse.set_visible(false);
 		this.TITULOPART1 = new flixel_text_FlxText(flixel_FlxG.width / 2 - 40,5,0,"TRUCHI INVADERS",8);
 		this.TITULOPART2 = new flixel_text_FlxText(flixel_FlxG.width / 2 - 50,13,0,"(clon space invaders)",8);
 		this.EMPEZAR = new flixel_text_FlxText(0,30,0,"1.JUGAR",8);
@@ -6192,6 +6218,11 @@ Personaje.prototype = $extend(flixel_FlxSprite.prototype,{
 	,__class__: Personaje
 });
 var PlayState = function(MaxSize) {
+	this.VidaEstruc5 = 0;
+	this.VidaEstruc4 = 0;
+	this.VidaEstruc3 = 0;
+	this.VidaEstruc2 = 0;
+	this.VidaEstruc1 = 0;
 	this.cantGolpes = 4;
 	this.RevivirJugador = 2000;
 	this.VidasJugador = 3;
@@ -6213,6 +6244,7 @@ PlayState.__super__ = flixel_FlxState;
 PlayState.prototype = $extend(flixel_FlxState.prototype,{
 	create: function() {
 		flixel_FlxState.prototype.create.call(this);
+		flixel_FlxG.mouse.set_visible(false);
 		this.cuadrado = new Personaje(80,144,"assets/images/Player.png");
 		this.cuadrado.scale.set_y(0.5);
 		this.add(this.cuadrado);
@@ -6239,7 +6271,7 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		this.spriteVidas3.scale.set_y(0.4);
 		this.spriteVidas3.set_y(0);
 		this.tiempo = 5;
-		this.frame = 1000;
+		this.frame = 800;
 		this.elegirGrupo = new flixel_math_FlxRandom();
 		this.elegirEnemigo = new flixel_math_FlxRandom();
 		this.elegirTiempoOvni = new flixel_math_FlxRandom();
@@ -6348,7 +6380,7 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 			this.contador = 0;
 		}
 		if(this.frame == 0) {
-			this.frame = 1000;
+			this.frame = 800;
 			this.tiempo = 0;
 		}
 		if(this.marcianitoLoko.x < 0) {
@@ -6407,39 +6439,60 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 		while(i.hasNext()) {
 			var i1 = i.next();
 			if(flixel_FlxG.overlap(i1,this.cuadrado.retornaBala())) {
-				i1.destruyeEstruc();
 				this.cuadrado.retornaBala().kill();
+				i1.ModifEstruc();
+				this.VidaEstruc1++;
+				if(this.VidaEstruc1 >= 3) {
+					i1.destruyeEstruc();
+					this.VidaEstruc1 = 0;
+				}
 			}
 			var j = new flixel_group_FlxTypedGroupIterator(this.enemiGrup4.members,null);
 			while(j.hasNext()) {
 				var j1 = j.next();
 				if(flixel_FlxG.overlap(i1,j1.retornaBalaEnemigo())) {
 					j1.retornaBalaEnemigo().kill();
-					i1.destruyeEstruc();
+					i1.ModifEstruc();
+					this.VidaEstruc2++;
+					if(this.VidaEstruc2 >= 3) {
+						i1.destruyeEstruc();
+					}
 				}
 			}
 			var k = new flixel_group_FlxTypedGroupIterator(this.enemiGrup3.members,null);
 			while(k.hasNext()) {
 				var k1 = k.next();
 				if(flixel_FlxG.overlap(i1,k1.retornaBalaEnemigo())) {
-					i1.destruyeEstruc();
 					k1.retornaBalaEnemigo().kill();
+					i1.ModifEstruc();
+					this.VidaEstruc3++;
+					if(this.VidaEstruc3 >= 3) {
+						i1.destruyeEstruc();
+					}
 				}
 			}
 			var l = new flixel_group_FlxTypedGroupIterator(this.enemiGrup2.members,null);
 			while(l.hasNext()) {
 				var l1 = l.next();
 				if(flixel_FlxG.overlap(i1,l1.retornaBalaEnemigo())) {
-					i1.destruyeEstruc();
 					l1.retornaBalaEnemigo().kill();
+					i1.ModifEstruc();
+					this.VidaEstruc4++;
+					if(this.VidaEstruc4 >= 3) {
+						i1.destruyeEstruc();
+					}
 				}
 			}
 			var z = new flixel_group_FlxTypedGroupIterator(this.enemiGrup.members,null);
 			while(z.hasNext()) {
 				var z1 = z.next();
 				if(flixel_FlxG.overlap(i1,z1.retornaBalaEnemigo())) {
-					i1.destruyeEstruc();
 					z1.retornaBalaEnemigo().kill();
+					i1.ModifEstruc();
+					this.VidaEstruc5++;
+					if(this.VidaEstruc5 >= 3) {
+						i1.destruyeEstruc();
+					}
 				}
 			}
 		}

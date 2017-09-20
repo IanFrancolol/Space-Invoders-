@@ -81,6 +81,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
 		Font.registerFont (__ASSET__flixel_fonts_nokiafc22_ttf);
 		Font.registerFont (__ASSET__flixel_fonts_monsterrat_ttf);
 		
@@ -90,6 +92,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -639,6 +643,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -672,12 +678,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/Player.png", AssetType.IMAGE);
 		path.set ("assets/music/music-goes-here.txt", "assets/music/music-goes-here.txt");
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
+		path.set ("assets/sounds/ESTAMOSnNLAb.wav", "assets/sounds/ESTAMOSnNLAb.wav");
+		type.set ("assets/sounds/ESTAMOSnNLAb.wav", AssetType.SOUND);
 		path.set ("assets/sounds/explocionMarcianitoLoko.wav", "assets/sounds/explocionMarcianitoLoko.wav");
 		type.set ("assets/sounds/explocionMarcianitoLoko.wav", AssetType.SOUND);
 		path.set ("assets/sounds/Explosion.wav", "assets/sounds/Explosion.wav");
 		type.set ("assets/sounds/Explosion.wav", AssetType.SOUND);
 		path.set ("assets/sounds/ExplosionJugador.wav", "assets/sounds/ExplosionJugador.wav");
 		type.set ("assets/sounds/ExplosionJugador.wav", AssetType.SOUND);
+		path.set ("assets/sounds/GameOver_-_copia.wav", "assets/sounds/GameOver_-_copia.wav");
+		type.set ("assets/sounds/GameOver_-_copia.wav", AssetType.SOUND);
 		path.set ("assets/sounds/Laser_Shoot2.wav", "assets/sounds/Laser_Shoot2.wav");
 		type.set ("assets/sounds/Laser_Shoot2.wav", AssetType.SOUND);
 		path.set ("assets/sounds/oopcion2ExlocionEnemigo.wav", "assets/sounds/oopcion2ExlocionEnemigo.wav");
@@ -747,6 +757,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		id = "assets/music/music-goes-here.txt";
 		path.set (id, id);
 		type.set (id, AssetType.TEXT);
+		id = "assets/sounds/ESTAMOSnNLAb.wav";
+		path.set (id, id);
+		type.set (id, AssetType.SOUND);
 		id = "assets/sounds/explocionMarcianitoLoko.wav";
 		path.set (id, id);
 		type.set (id, AssetType.SOUND);
@@ -754,6 +767,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		type.set (id, AssetType.SOUND);
 		id = "assets/sounds/ExplosionJugador.wav";
+		path.set (id, id);
+		type.set (id, AssetType.SOUND);
+		id = "assets/sounds/GameOver_-_copia.wav";
 		path.set (id, id);
 		type.set (id, AssetType.SOUND);
 		id = "assets/sounds/Laser_Shoot2.wav";
@@ -821,6 +837,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		#if (windows || mac || linux)
 		
 		var useManifest = false;
+		useManifest = true;
+		useManifest = true;
 		useManifest = true;
 		useManifest = true;
 		useManifest = true;
@@ -1603,6 +1621,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_beep_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends null { }
 @:keep @:bind #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends null { }
@@ -1612,6 +1632,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 #elseif html5
+
+
 
 
 
