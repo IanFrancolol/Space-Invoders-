@@ -130,10 +130,14 @@ class PlayState extends FlxState
 		tiempoOvni = 5000;
 		elegir = 0;
 		maximoPuntaje = Reg.highscore;
-		texto = new FlxText(FlxG.width / 2-30, FlxG.height / 2-10, 0, "GAME OVER", 8);
+		texto = new FlxText(FlxG.width / 2 - 30, FlxG.height / 2 - 10, 0, "GAME OVER", 8);
+		texto.color = 0xbaffc9;
 		textoScore = new FlxText(1, 1, 0, "Score:" + puntaje, 8);
+		textoScore.color = 0xbaffc9;
 		textoHightScore = new FlxText(85, 1, 0, "HighScore:" + maximoPuntaje, 8);
+		textoHightScore.color = 0xbaffc9;
 		YouWin = new FlxText(FlxG.width / 2 - 20, FlxG.height / 2 - 10, 0, "YOU WIN", 8);
+		textoHightScore.color = 0xbaffc9;
 		
 		for (i in 0...10)//cambiar para cantidad de marcianos 1
 		{
@@ -263,6 +267,7 @@ class PlayState extends FlxState
 			cuadrado.retornaBala().kill();
 			puntaje = sumaPuntaje(puntaje, puntajeBonus.int(100, 250));
 			textoScore = new FlxText(1, 1, 0, "Score:" + puntaje, 8);
+			textoScore.color = 0xbaffc9;
 			add(textoScore);
 		}
 		if (EntrarEnfor)
@@ -388,6 +393,7 @@ class PlayState extends FlxState
 					cuadrado.retornaBala().kill();
 					puntaje = sumaPuntaje(puntaje, 10);
 					textoScore = new FlxText(1, 1, 0, "Score:" + puntaje, 8);
+					textoScore.color = 0xbaffc9;
 					add(textoScore);
 				}
 				else if (FlxG.collide(enemiGrup3.members[i], cuadrado.retornaBala())&& enemiGrup3.members[i].visible == true)
@@ -398,6 +404,7 @@ class PlayState extends FlxState
 					cuadrado.retornaBala().kill();
 					puntaje = sumaPuntaje(puntaje, 20);
 					textoScore = new FlxText(1, 1, 0, "Score:" + puntaje, 8);
+					textoScore.color = 0xbaffc9;
 					add(textoScore);
 				}
 				else if (FlxG.collide(enemiGrup2.members[i], cuadrado.retornaBala())&& enemiGrup2.members[i].visible == true)
@@ -408,6 +415,7 @@ class PlayState extends FlxState
 					cuadrado.retornaBala().kill();
 					puntaje = sumaPuntaje(puntaje, 40);
 					textoScore = new FlxText(1, 1, 0, "Score:" + puntaje, 8);
+					textoScore.color = 0xbaffc9;
 					add(textoScore);
 				}
 				else if (FlxG.collide(enemiGrup.members[i], cuadrado.retornaBala())&& enemiGrup.members[i].visible == true)
@@ -418,6 +426,7 @@ class PlayState extends FlxState
 					cuadrado.retornaBala().kill();
 					puntaje = sumaPuntaje(puntaje,80);
 					textoScore = new FlxText(1, 1, 0, "Score:" + puntaje, 8);
+					textoScore.color = 0xbaffc9;
 					add(textoScore);
 				}
 				if (FlxG.overlap(cuadrado, enemiGrup4.members[i])&& enemiGrup4.members[i].visible == true || enemiGrup4.members[i].y>cuadrado.y && enemiGrup4.members[i].alive)

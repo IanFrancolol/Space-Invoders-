@@ -78,6 +78,10 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
+		urls.push ("assets/sounds/ESTAMOSnNLAb.wav");
+		types.push (lime.Assets.AssetType.SOUND);
+		
+		
 		urls.push ("assets/sounds/explocionMarcianitoLoko.wav");
 		types.push (lime.Assets.AssetType.SOUND);
 		
@@ -87,6 +91,10 @@ class ApplicationMain {
 		
 		
 		urls.push ("assets/sounds/ExplosionJugador.wav");
+		types.push (lime.Assets.AssetType.SOUND);
+		
+		
+		urls.push ("assets/sounds/GameOver_-_copia.wav");
 		types.push (lime.Assets.AssetType.SOUND);
 		
 		
@@ -207,7 +215,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "1219",
+			build: "1381",
 			company: "Theo leyenda",
 			file: "spaceinvadersCODIGO",
 			fps: 60,

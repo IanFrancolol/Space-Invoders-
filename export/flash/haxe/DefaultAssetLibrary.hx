@@ -76,6 +76,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -109,12 +111,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/images/Player.png", AssetType.IMAGE);
 		className.set ("assets/music/music-goes-here.txt", __ASSET__assets_music_music_goes_here_txt);
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
+		className.set ("assets/sounds/ESTAMOSnNLAb.wav", __ASSET__assets_sounds_estamosnnlab_wav);
+		type.set ("assets/sounds/ESTAMOSnNLAb.wav", AssetType.SOUND);
 		className.set ("assets/sounds/explocionMarcianitoLoko.wav", __ASSET__assets_sounds_explocionmarcianitoloko_wav);
 		type.set ("assets/sounds/explocionMarcianitoLoko.wav", AssetType.SOUND);
 		className.set ("assets/sounds/Explosion.wav", __ASSET__assets_sounds_explosion_wav);
 		type.set ("assets/sounds/Explosion.wav", AssetType.SOUND);
 		className.set ("assets/sounds/ExplosionJugador.wav", __ASSET__assets_sounds_explosionjugador_wav);
 		type.set ("assets/sounds/ExplosionJugador.wav", AssetType.SOUND);
+		className.set ("assets/sounds/GameOver_-_copia.wav", __ASSET__assets_sounds_gameover___copia_wav);
+		type.set ("assets/sounds/GameOver_-_copia.wav", AssetType.SOUND);
 		className.set ("assets/sounds/Laser_Shoot2.wav", __ASSET__assets_sounds_laser_shoot2_wav);
 		type.set ("assets/sounds/Laser_Shoot2.wav", AssetType.SOUND);
 		className.set ("assets/sounds/oopcion2ExlocionEnemigo.wav", __ASSET__assets_sounds_oopcion2exlocionenemigo_wav);
@@ -196,6 +202,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.TEXT);
+		id = "assets/sounds/ESTAMOSnNLAb.wav";
+		path.set (id, id);
+		
+		type.set (id, AssetType.SOUND);
 		id = "assets/sounds/explocionMarcianitoLoko.wav";
 		path.set (id, id);
 		
@@ -205,6 +215,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.SOUND);
 		id = "assets/sounds/ExplosionJugador.wav";
+		path.set (id, id);
+		
+		type.set (id, AssetType.SOUND);
+		id = "assets/sounds/GameOver_-_copia.wav";
 		path.set (id, id);
 		
 		type.set (id, AssetType.SOUND);
@@ -318,6 +332,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("assets/music/music-goes-here.txt", __ASSET__assets_music_music_goes_here_txt);
 		type.set ("assets/music/music-goes-here.txt", AssetType.TEXT);
 		
+		className.set ("assets/sounds/ESTAMOSnNLAb.wav", __ASSET__assets_sounds_estamosnnlab_wav);
+		type.set ("assets/sounds/ESTAMOSnNLAb.wav", AssetType.SOUND);
+		
 		className.set ("assets/sounds/explocionMarcianitoLoko.wav", __ASSET__assets_sounds_explocionmarcianitoloko_wav);
 		type.set ("assets/sounds/explocionMarcianitoLoko.wav", AssetType.SOUND);
 		
@@ -326,6 +343,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/sounds/ExplosionJugador.wav", __ASSET__assets_sounds_explosionjugador_wav);
 		type.set ("assets/sounds/ExplosionJugador.wav", AssetType.SOUND);
+		
+		className.set ("assets/sounds/GameOver_-_copia.wav", __ASSET__assets_sounds_gameover___copia_wav);
+		type.set ("assets/sounds/GameOver_-_copia.wav", AssetType.SOUND);
 		
 		className.set ("assets/sounds/Laser_Shoot2.wav", __ASSET__assets_sounds_laser_shoot2_wav);
 		type.set ("assets/sounds/Laser_Shoot2.wav", AssetType.SOUND);
@@ -1025,9 +1045,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:keep @:bind #if display private #end class __ASSET__assets_images_marcianito_loko_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_images_player_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__assets_music_music_goes_here_txt extends flash.utils.ByteArray { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_estamosnnlab_wav extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_explocionmarcianitoloko_wav extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_explosion_wav extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_explosionjugador_wav extends flash.media.Sound { }
+@:keep @:bind #if display private #end class __ASSET__assets_sounds_gameover___copia_wav extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_laser_shoot2_wav extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_oopcion2exlocionenemigo_wav extends flash.media.Sound { }
 @:keep @:bind #if display private #end class __ASSET__assets_sounds_opcion1disparojugador_wav extends flash.media.Sound { }
@@ -1045,6 +1067,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 #elseif html5
+
+
 
 
 
@@ -1096,9 +1120,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/images/marcianito-Loko.png") #if display private #end class __ASSET__assets_images_marcianito_loko_png extends lime.graphics.Image {}
 @:image("assets/images/Player.png") #if display private #end class __ASSET__assets_images_player_png extends lime.graphics.Image {}
 @:file("assets/music/music-goes-here.txt") #if display private #end class __ASSET__assets_music_music_goes_here_txt extends lime.utils.Bytes {}
+@:file("assets/sounds/ESTAMOSnNLAb.wav") #if display private #end class __ASSET__assets_sounds_estamosnnlab_wav extends lime.utils.Bytes {}
 @:file("assets/sounds/explocionMarcianitoLoko.wav") #if display private #end class __ASSET__assets_sounds_explocionmarcianitoloko_wav extends lime.utils.Bytes {}
 @:file("assets/sounds/Explosion.wav") #if display private #end class __ASSET__assets_sounds_explosion_wav extends lime.utils.Bytes {}
 @:file("assets/sounds/ExplosionJugador.wav") #if display private #end class __ASSET__assets_sounds_explosionjugador_wav extends lime.utils.Bytes {}
+@:file("assets/sounds/GameOver_-_copia.wav") #if display private #end class __ASSET__assets_sounds_gameover___copia_wav extends lime.utils.Bytes {}
 @:file("assets/sounds/Laser_Shoot2.wav") #if display private #end class __ASSET__assets_sounds_laser_shoot2_wav extends lime.utils.Bytes {}
 @:file("assets/sounds/oopcion2ExlocionEnemigo.wav") #if display private #end class __ASSET__assets_sounds_oopcion2exlocionenemigo_wav extends lime.utils.Bytes {}
 @:file("assets/sounds/opcion1DisparoJugador.wav") #if display private #end class __ASSET__assets_sounds_opcion1disparojugador_wav extends lime.utils.Bytes {}
