@@ -75,6 +75,7 @@ class PlayState extends FlxState
 	override public function create():Void
 	{
 		super.create();
+		FlxG.mouse.visible = false;
 		cuadrado = new Personaje(80, 144, AssetPaths.Player__png);
 		cuadrado.scale.y = 0.5;
 		add(cuadrado);

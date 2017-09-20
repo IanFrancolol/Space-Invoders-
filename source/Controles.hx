@@ -32,6 +32,7 @@ class Controles extends FlxState
 	override public function create():Void 
 	{	
 		super.create();
+		FlxG.mouse.visible = false;
 		CONTROLS = new FlxText(FlxG.width / 2 - 30, 5, 0, "CONTROLES", 8);
 		F5 = new FlxText(0, 25, 0, "F5: Maximizar pantalla",8);
 		ESC = new FlxText(0, 41, 0, "ESC: Minimizar pantalla",8);

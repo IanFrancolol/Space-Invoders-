@@ -515,7 +515,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "1259",
+			build: "1263",
 			company: "Theo leyenda",
 			file: "spaceinvadersCODIGO",
 			fps: 60,

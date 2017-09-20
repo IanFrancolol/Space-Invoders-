@@ -110,7 +110,7 @@ ApplicationMain.init = function() {
 	}
 };
 ApplicationMain.main = function() {
-	ApplicationMain.config = { build : "1258", company : "Theo leyenda", file : "spaceinvadersCODIGO", fps : 60, name : "space invaders(CODIGO)", orientation : "", packageName : "com.example.myapp", version : "0.0.1", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 432, parameters : "{}", resizable : false, stencilBuffer : true, title : "space invaders(CODIGO)", vsync : true, width : 480, x : null, y : null}]};
+	ApplicationMain.config = { build : "1253", company : "Theo leyenda", file : "spaceinvadersCODIGO", fps : 60, name : "space invaders(CODIGO)", orientation : "", packageName : "com.example.myapp", version : "0.0.1", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 432, parameters : "{}", resizable : false, stencilBuffer : true, title : "space invaders(CODIGO)", vsync : true, width : 480, x : null, y : null}]};
 };
 ApplicationMain.start = function() {
 	var hasMain = false;

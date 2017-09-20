@@ -20,11 +20,12 @@ class IntegrantesState extends FlxState
 	override public function create():Void 
 	{
 		super.create();
+		FlxG.mouse.visible = false;
 		INTEGRANTES_DEL_GRUPO = new FlxText(20, 5, 0, "INTEGRANTES DEL GRUPO", 8);
 		INTEGRANTES = new FlxText(45, 36, 0, "LEYENDA THEO ", 8);
 		//Y = new FlxText(70, 28, 0, "Y", 8);
 		INTEGRANTES2 = new FlxText(40,20, 0, "LEGUIZAMON IAN ", 8);
-		PRECIONE_ENTER_PARA_CONTINUAR = new FlxText(40, 80, 0, "PRECIONE ENTER", 8);
+		PRECIONE_ENTER_PARA_CONTINUAR = new FlxText(40, 80, 0, "PRESIONE ENTER", 8);
 		ENTER = new FlxText(40, 88, 0, "PARA CONTINUAR", 8);
 		add(INTEGRANTES_DEL_GRUPO);
 		add(INTEGRANTES);

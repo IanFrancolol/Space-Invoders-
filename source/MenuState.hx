@@ -20,6 +20,7 @@ class MenuState extends FlxState
 	override public function create():Void 
 	{
 		super.create();
+		FlxG.mouse.visible = false;
 		TITULOPART1 = new FlxText(FlxG.width / 2 - 40, 5, 0, "TRUCHI INVADERS", 8);
 		TITULOPART2 = new FlxText(FlxG.width / 2 - 50, 13, 0, "(clon space invaders)", 8);
 		EMPEZAR = new FlxText(0 , 30, 0, "1.JUGAR",8);
